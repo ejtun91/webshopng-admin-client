@@ -1,0 +1,17 @@
+.login-register {
+  max-width: 1300px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-panel {
+    width: 650px;
+    height: 525px;
+    background-color: var(--surface-a);
+
+    .full-btn {
+      width: 100%;
+    }
+  }
+}
