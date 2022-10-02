@@ -7,6 +7,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LocalstorageService } from './localstorage.service';
+import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -17,7 +18,7 @@ export class JwtInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     const token = this.localstorageToken.getToken();
-    const isAPIUrl = request.url.startsWith('http://localhost:3000/api/v1/');
+    const isAPIUrl = request.url.startsWith(environment.apiURL);
 
     if (token && isAPIUrl) {
       request = request.clone({
